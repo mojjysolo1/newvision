@@ -47,6 +47,7 @@ public function resolve(String $requestUri,String $requestMethod){
   
 //if classed passed
   if(is_array($action)){
+   
     [$class,$method,$array_data]=$action;
 
     if(class_exists($class)){

@@ -26,8 +26,14 @@
 
 <script src='./js/jquery.js'></script>
 <script>
-  var gschool_DB='';
-  </script>
+ var loadnum='';
+    var startload=0;
+    var defaultNum=5;//change this value to populate desired rows
+var menuItemSelected='';
+var ordernum=0;
+var ids_selected=[];
+var orderItemsData={};
+</script>
 
 
   </head>
@@ -35,9 +41,9 @@
   <body class="bckground">
 
  <!--class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"-->
- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style='z-index:0;'>
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style='z-index:1;'>
       <a class="navbar-brand  text-primary josh_bold "  href="#">
-        <img src='images/safia_logo.png' alt='logo' height='30' width='30'></a>
+        <img src='images/icon_logo.png' alt='logo' height='30' width='30'></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,23 +53,7 @@
         <ul class="navbar-nav mr-auto " style='width:92%;'>
 
         <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./home">Home</a>
-          </li>
-
-          <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="./ourservices">Our Services</a>
-          </li>
-
-          <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="./aboutus">About Us</a>
-          </li>
-
-          <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="./contactus">Contact Us</a>
-          </li>
-
-          <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="./downloads">Downloads</a>
+                <a class="nav-link active" aria-current="page" href="/"><h4>Make your book orders online</h4></a>
           </li>
 
         </ul>
@@ -71,18 +61,19 @@
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>-->
-        <a  href="./agent"><button class="btn btn-outline-primary text-light" type="submit">Agent</button></a>
+        <a  href="/admin"><button class="btn btn-outline-primary text-light" type="submit">admin</button></a>
       </div>
     </nav>
 
     <div class='fluid-container mycontainer p-4' >
+      
     {{content}}
 
      </div>
 
 <!--Starts row4 bottom-->
 <div class='row w-100 rounded text-center' id='bottom' >
-     	<div ><?php echo $_SESSION['FOOTER']; ?></div>
+     	<div ><?= $_ENV['FOOTER']; ?></div>
      </div>
      <!--Ends row4 Bottom-->
      

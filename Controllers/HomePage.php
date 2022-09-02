@@ -7,7 +7,7 @@ class HomePage{
     {
         
 
-        return View::make('test',['layout'=>'mainView',$_GET]);
+        return View::make('homePageView',['layout'=>'mainLayout']);
     }
 
 }

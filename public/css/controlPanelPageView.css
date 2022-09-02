@@ -1,0 +1,59 @@
+
+
+      .bd-placeholder-img {
+
+        font-size: 1.125rem;
+
+        text-anchor: middle;
+
+        -webkit-user-select: none;
+
+        -moz-user-select: none;
+
+        -ms-user-select: none;
+
+        user-select: none;
+
+      }
+
+
+
+      @media (min-width: 768px) {
+
+        .bd-placeholder-img-lg {
+
+          font-size: 3.5rem;
+
+        }
+
+      }
+
+
+
+      .cc{
+
+       /* background:url('./images/ditlogo_background.png') no-repeat 50% 5%;*/
+
+       /*background: rgb(24, 23, 23);
+background: linear-gradient(90deg, rgba(148,148,148,1) 0%, rgba(255,255,255,1) 54%, rgba(148,148,148,1) 100%);*/
+background: rgb(203, 190, 169);
+		background: linear-gradient(90deg, rgb(203, 190, 169,1) 0%, rgb(255, 255, 254) 54%, rgb(203, 190, 169,1) 100%);
+
+
+
+      }
+
+      .form-signin{
+
+       /* background-color:rgba(139,206,242,1);*/
+
+        border-radius:12px;
+
+        /*background-color:rgba(139,206,242,0.3);*/
+
+        border:1px solid #000000;
+
+       box-shadow:rgba(0,0,0,1) 2px 4px 4px;
+
+      }
+      

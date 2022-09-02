@@ -126,6 +126,12 @@ try{
 return $resp;
 		}
 
+		public function rowCount($sql){
+			$sql=$this->conn->query($sql);
+			$this->numRows= $sql->rowCount();
+			//mysqli_free_result($sql);
+			return $this->numRows;
+			}
 
 public function getCount(){
 $sql=$this->conn->query("select * from ".$this->table." where ".$this->field."='".$this->value."'");
@@ -233,6 +239,7 @@ $params=join('',$filtered_keys);
 
 try{
       $query="insert into ".$this->table." values (".$params.")";
+	  
       	$insert=$this->conn->prepare($query);
       
       $resp=$insert->execute($array_vals);

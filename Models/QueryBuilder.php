@@ -9,6 +9,7 @@ abstract class QueryBuilder{
     protected static $database=null;
     public string $error_msg;
     public int $rowCount=0;
+    public int $insert_id;
     
     public function __construct(Database $conn) {
          self::$database=$conn;
@@ -17,15 +18,17 @@ abstract class QueryBuilder{
     public function fetch($column,$cell):array
     {
         self::$database->set($this->table,$column,$cell);
-        
-        return self::$database->getValues();
+        $this->rowCount=self::$database->getCount();
+       
+        $values=self::$database->getValues();
+        return is_array($values)?$values:[];
     }
 
 
     public function fetchAssoc($column,$cell):array
     {
         self::$database->set($this->table,$column,$cell);
-        
+        $this->rowCount=self::$database->getCount();
         return self::$database->getValues(true);
     }
 
@@ -37,6 +40,12 @@ abstract class QueryBuilder{
         return $data;
     }
 
+    public function fetchRowCount($sql):int
+    {
+        
+        return self::$database->rowCount($sql)??0;
+    }
+    
 
     public function store(array $arr_insert_values):bool
     {
@@ -52,10 +61,15 @@ abstract class QueryBuilder{
              $this->error_msg="Some table felds are missing";
              return false;
       }
-            
+     
 
       self::$database->set($this->table,1,1);
+
       $response=self::$database->insertValues($arr_insert_values);
+
+      if($response)
+          $this->insert_id=self::$database->insert_id;
+
       return $response;
     }
     

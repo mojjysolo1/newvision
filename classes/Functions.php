@@ -18,6 +18,9 @@ function roundTo2decimals($num){
 	return round($num,2);
 }
 
+function nullTrim($str){
+	return trim($str ??'');
+  }
 
 function modifyDate($date){
 	 
